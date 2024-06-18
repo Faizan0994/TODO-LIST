@@ -2,3 +2,31 @@
     padding: 0;
     margin: 0;
 }
+
+body {
+    height: 100lvh;
+    width: 100lvw;
+    display: grid;
+    grid-template-columns: 2fr 7fr;
+    grid-template-rows: 2fr 16fr 1fr;
+}
+
+.header {
+    grid-row: 1 span 1;
+    grid-column: 1 / -1;
+}
+
+.nav {
+    grid-row: 2 span 1;
+    grid-column: 1 span 1;
+}
+
+.main {
+    grid-row: 2 span 1;
+    grid-column: 2 span 1;
+}
+
+.footer {
+    grid-row: 3 / -1;
+    grid-column: 1 / -1;
+}
