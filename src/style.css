@@ -29,6 +29,7 @@ h1 {
 }
 
 .nav {
+    background-color: #60f9ff;
     grid-row: 2 span 1;
     grid-column: 1 span 1;
     border: 1px solid black;
