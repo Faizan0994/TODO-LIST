@@ -71,6 +71,60 @@ h1 {
 .main {
     grid-row: 2 span 1;
     grid-column: 2 span 1;
+    padding: 3vh 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 32px;
+}
+
+.task {
+    background-color: white;
+    width: 96%;
+    height: 6vh;
+    border-radius: 16px;
+    border-left: 12px solid;
+    padding: 0 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.important {
+    border-color: red;
+}
+
+.normal {
+    border-color: yellow;
+}
+
+.optional {
+    border-color: green;
+}
+
+.task-name {
+    font-size: 3vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.add-task {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-task-button {
+    width: 5vh;
+    height: 5vh;
+    font-size: 4vh;
+    border-radius: 12px;
+    border: none;
 }
 
 .footer {
