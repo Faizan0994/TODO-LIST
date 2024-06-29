@@ -7,8 +7,18 @@ function displayProjects(section, projects) {
         const project = document.createElement('div');
         project.textContent = projects[i][0];
         project.classList.add("project");
+        project.setAttribute('id', `projects[${i}]`);
         section.appendChild(project);
+        project.addEventListener('click', (e) => Select(e.target.id));
     }
+}
+
+function Select(projectId) {
+    console.log(projectId);
+    //deselect the previously selected element
+    document.querySelectorAll('.project').forEach(project => project.classList.remove('selected'));
+
+    document.getElementById(projectId).classList.add('selected');
 }
 
 export {displayProjects};
