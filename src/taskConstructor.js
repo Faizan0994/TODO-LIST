@@ -7,4 +7,8 @@ class Task {
     }
 }
 
-export default Task;
+function createProject(name, collection){
+    collection.push(new Array(name));
+}
+
+export {Task, createProject};
