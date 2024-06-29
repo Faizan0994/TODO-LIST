@@ -14,7 +14,6 @@ function displayProjects(section, projects) {
 }
 
 function Select(projectId) {
-    console.log(projectId);
     //deselect the previously selected element
     document.querySelectorAll('.project').forEach(project => project.classList.remove('selected'));
 
