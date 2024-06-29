@@ -1,5 +1,5 @@
 import './style.css';
-import {Task, createProject} from './taskConstructor';
+import {createProject, createTask} from './taskConstructor';
 
 var projects = []; //to store all projects
 
