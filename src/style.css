@@ -60,6 +60,19 @@ h1 {
     padding-left: 4px;
 }
 
+.project:hover {
+    background-color: rgba(255, 255, 255, 0.212);
+    
+}
+
+.project:active {
+    color: black;
+}
+
+.selected {
+    background-color: #17d850;
+}
+
 .add-project {
     text-align: center;
     justify-content: center;
