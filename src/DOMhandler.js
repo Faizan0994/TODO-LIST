@@ -10,6 +10,7 @@ function displayProjects(section, projects) {
         project.setAttribute('id', `${i}`);
         section.appendChild(project);
         project.addEventListener('click', (e) => Select(e.target.id));
+        project.addEventListener('click', (e) => displayTasks(e.target.id, document.querySelector('.tasks'), projects));
     }
 }
 
@@ -19,4 +20,30 @@ function Select(projectId) {
 
     document.getElementById(projectId).classList.add('selected');
 }
-export {displayProjects};
+
+function displayTasks(projectId, home, collection) {
+    projectId = projectId*1; //to convert id to integer
+    while(home.firstElementChild){
+        home.removeChild(home.lastElementChild);
+    }
+
+    for(let i = 1; i<collection[projectId].length; i++){
+        const currentTask = collection[projectId][i];
+        const task = document.createElement('div');
+        task.classList.add('task');
+
+        const taskName = document.createElement('p');
+        taskName.classList.add('task-name');
+        taskName.textContent = currentTask.title;
+        task.appendChild(taskName);
+
+        const taskDate = document.createElement('p');
+        taskDate.classList.add('date');
+        taskDate.textContent = currentTask.date;
+        task.appendChild(taskDate);
+
+        home.appendChild(task);
+    }
+}
+
+export {displayProjects, displayTasks};
