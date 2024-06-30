@@ -7,7 +7,7 @@ function displayProjects(section, projects) {
         const project = document.createElement('div');
         project.textContent = projects[i][0];
         project.classList.add("project");
-        project.setAttribute('id', `projects[${i}]`);
+        project.setAttribute('id', `${i}`);
         section.appendChild(project);
         project.addEventListener('click', (e) => Select(e.target.id));
     }
@@ -19,5 +19,4 @@ function Select(projectId) {
 
     document.getElementById(projectId).classList.add('selected');
 }
-
 export {displayProjects};
