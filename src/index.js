@@ -1,6 +1,6 @@
 import './style.css';
 import {createProject, createTask} from './taskConstructor';
-import {displayProjects} from './DOMhandler';
+import {displayProjects, displayTasks} from './DOMhandler';
 
 var projects = []; //to store all projects
 
@@ -16,3 +16,4 @@ createTask(projects[2], "This is another task", "This is a very simple task for 
 
 const projectsTab = document.querySelector('.projects');
 displayProjects(projectsTab, projects);
+displayTasks("0", document.querySelector('.tasks'), projects);//tasks from the default project
