@@ -32,6 +32,14 @@ function displayTasks(projectId, home, collection) {
         const task = document.createElement('div');
         task.classList.add('task');
 
+        if(currentTask.priority === "important") {
+            task.classList.add('important');
+        } else if(currentTask.priority === "optional") {
+            task.classList.add('optional');
+        } else {
+            task.classList.add('normal');
+        }
+
         const taskName = document.createElement('p');
         taskName.classList.add('task-name');
         taskName.textContent = currentTask.title;
