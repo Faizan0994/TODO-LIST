@@ -23,3 +23,10 @@ document.addEventListener('click', (e) => {
         displayExtendedTask(e.target, projects);
     }
 });
+
+const deleteFromArray = function(i,j){
+    projects[i].splice(j, 1);
+    displayTasks(i, document.querySelector('.tasks'), projects);
+}
+
+export {deleteFromArray};
