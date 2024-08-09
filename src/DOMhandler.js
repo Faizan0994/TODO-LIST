@@ -1,3 +1,5 @@
+import { deleteTask } from "./taskConstructor";
+
 function displayProjects(section, projects) {
     while(section.firstElementChild){
         section.removeChild(section.lastElementChild);
@@ -74,6 +76,7 @@ function displayExtendedTask(taskElement, collection) {
         const removeTaskButton = document.createElement('button');
         removeTaskButton.innerHTML = "Remove";
         removeTaskButton.classList.add('removeTaskButton');
+        removeTaskButton.addEventListener('click', (e) => deleteTask(e.target.parentElement.dataset.code));
 
         taskElement.appendChild(desc);
         taskElement.appendChild(removeTaskButton);
