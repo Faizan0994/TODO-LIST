@@ -1,3 +1,4 @@
+import { deleteFromArray } from "./index";
 class Task {
     constructor (title, description, date, priority) {
         this.title = title;
@@ -15,4 +16,9 @@ function createProject(name, collection){
     collection.push(new Array(name));
 }
 
-export {Task, createProject, createTask};
+function deleteTask(index){
+    let [i,j] = index;
+    deleteFromArray(i,j);
+}
+
+export {Task, createProject, createTask, deleteTask};
