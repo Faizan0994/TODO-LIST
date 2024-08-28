@@ -1,5 +1,5 @@
 import { deleteTask } from "./taskConstructor";
-import { takeFormInput } from "./index";
+import { takeTaskFormInput, takeProjectFormInput } from "./index";
 
 function displayProjects(section, projects) {
     while(section.firstElementChild){
@@ -171,8 +171,44 @@ function displayNewTaskForm(home){
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const projectId = document.querySelector('.selected').id;
-        takeFormInput(nameInput.value, descInput.value, dateInput.value, priorityInput.value, projectId);
+        takeTaskFormInput(nameInput.value, descInput.value, dateInput.value, priorityInput.value, projectId);
     });
 }
 
-export {displayProjects, displayTasks, displayExtendedTask, displayNewTaskForm};
+function displayNewProjectForm(home){
+    while(home.firstElementChild){
+        home.removeChild(home.lastElementChild);
+    }
+
+    //creates the form and all inputs
+    const form = document.createElement('form');
+    form.action = "";
+    
+    const legend = document.createElement('legend');
+    legend.textContent = "Enter project name";
+    form.appendChild(legend);
+
+    const row = document.createElement('div');
+    row.classList.add('form-row-single');
+    const projectNameInput = document.createElement('input');
+    projectNameInput.setAttribute('type', 'text');
+    projectNameInput.setAttribute('id', 'projectName');
+    projectNameInput.setAttribute('name', 'projectName');
+    row.appendChild(projectNameInput);
+    form.appendChild(row);
+
+    const addProjectButton = document.createElement('button');
+    addProjectButton.setAttribute('type', 'submit');
+    addProjectButton.classList.add('form-add-project');
+    addProjectButton.textContent = "Add Project";
+    form.appendChild(addProjectButton);
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        takeProjectFormInput(projectNameInput.value);
+    });
+
+    home.appendChild(form);
+}
+
+export {displayProjects, displayTasks, displayExtendedTask, displayNewTaskForm, displayNewProjectForm};
