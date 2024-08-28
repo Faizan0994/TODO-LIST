@@ -1,6 +1,7 @@
 import './style.css';
 import {createProject, createTask} from './taskConstructor';
-import {displayProjects, displayTasks, displayExtendedTask} from './DOMhandler';
+import {displayProjects, displayTasks, displayExtendedTask, displayNewTaskForm} from './DOMhandler';
+import {format} from 'date-fns';
 
 var projects = []; //to store all projects
 
@@ -16,6 +17,7 @@ createTask(projects[2], "This is another task", "This is a very simple task for 
 
 const projectsTab = document.querySelector('.projects');
 displayProjects(projectsTab, projects);
+document.getElementById('0').classList.add('selected');
 displayTasks("0", document.querySelector('.tasks'), projects);//tasks from the default project
 
 document.addEventListener('click', (e) => {
@@ -29,4 +31,14 @@ const deleteFromArray = function(i,j){
     displayTasks(i, document.querySelector('.tasks'), projects);
 }
 
-export {deleteFromArray};
+document.querySelector('.add-task-button').addEventListener('click', (e)=>{
+    displayNewTaskForm(document.querySelector('.tasks'));
+});
+
+function takeFormInput(title, description, date, priority, Id){
+    date = format(date, "dd/MM/yyyy");
+    createTask(projects[Id], title, description, date, priority);
+    displayTasks(Id, document.querySelector('.tasks'), projects);
+}
+
+export {deleteFromArray, takeFormInput};
