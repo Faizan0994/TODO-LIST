@@ -3,7 +3,7 @@ import {createProject, createTask} from './taskConstructor';
 import {displayProjects, displayTasks, displayExtendedTask, displayNewTaskForm, displayNewProjectForm} from './DOMhandler';
 import {format} from 'date-fns';
 
-if(localStorage.getItem("projectsArray" === null)) {
+if(localStorage.getItem("projectsArray") === null) {
     var projects = []; //to store all projects
 
     createProject("Default", projects); //the default project
